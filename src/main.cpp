@@ -3,21 +3,24 @@
 #include "Cell.hpp"
 
 int main() {
-    Universe universe(10, 100);
+    
+    Universe* universe = Universe::loadUniverse("files/glider.txt");
 
-    universe.addCell(1, 1);
-    universe.addCell(2, 2);
-    universe.addCell(3, 3);
+    Universe universeBis = Universe(10, 10, 100);
+    universeBis.addCell(1, 1);
+    universeBis.addCell(2, 1);
+    universeBis.addCell(1, 2);
+    universeBis.addCell(3, 4);
+    universeBis.saveUniverse("test.txt");
 
-    Cell* cell = universe.getCell(2, 2);
-    if (cell) {
-        std::cout << "Found cell at (2, 2)" << std::endl;
-    } else {
-        std::cout << "Cell at (2, 2) not found" << std::endl;
+
+    if (universe == nullptr) {
+        return 1;
     }
 
+    universe->displayUniverse("o");
 
-    universe.displayUniverse();
+    delete universe;
 
     return 0;
 }

@@ -6,15 +6,21 @@
 
 class Universe {
     public:
-        Universe(int width, int height) : width(width), height(height), head(nullptr) {}
+        Universe(int width, int height, int simulationStep = 100) : width(width), height(height), simulationStep(simulationStep), head(nullptr) {}
         ~Universe();
-        void displayUniverse();
+        
+        static Universe* loadUniverse(std::string filepath);
+
+        void saveUniverse(std::string filepath);
+        void displayUniverse(std::string displayChar);
         void addCell(int coordx, int coordy);
         void removeCell(int coordx, int coordy);
         Cell* getCell(int coordx, int coordy);
+
     private:
         int width;
         int height;
+        int simulationStep;
         Cell* head;
 };
 

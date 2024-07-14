@@ -11,10 +11,6 @@ public:
     int coordy;
     int status;
     Cell* next;
-    
-    // void addCell(int coordx, int coordy);
-    // void removeCell(int coordx, int coordy);
-    // Cell* getCell(int coordx, int coordy);
 };
 
 #endif
